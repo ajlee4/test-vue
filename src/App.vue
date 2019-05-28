@@ -13,13 +13,11 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
-import CommentList from "./components/CommentList";
+import CommentList from "@/components/CommentList";
 
 export default {
   name: "app",
   components: {
-    HelloWorld,
     CommentList
   },
   data() {

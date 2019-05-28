@@ -6,15 +6,15 @@
         class="comments-input"
         placeholder="Write a new comment"
         @focus="showBtn"
-        @blur="hideBtn"
         v-model="message"
       >
-      <button class="btn btn-send" :class="[isVisible ? '' : 'hidden']" @click="addComments">Send</button>
+
+      <button class="btn btn-send" :class="isVisible  ? '': 'hidden'" @click="addComments">Send</button>
     </div>
     <comment
-      v-for="(item, index) in commentsList"
+      v-for="(item,index) in commentsList"
       :comments="item"
-      :key="index"
+      :key="index + Date.now()"
       v-on:delete-comment="deleteComment"
     ></comment>
   </div>
@@ -48,10 +48,9 @@ export default {
     };
   },
   methods: {
-    showBtn(e) {
+    showBtn() {
       this.isVisible = true;
     },
-    hideBtn() {},
     addComments() {
       if (this.message.length > 0) {
         this.commentsList.unshift({ name: "Egor", text: this.message });
@@ -67,7 +66,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 </style>
 
 
